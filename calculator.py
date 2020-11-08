@@ -1,29 +1,35 @@
-# digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-# dec = '.'
-operators = ['+', '-', '*', '/']
-
-def get_sum():
-    ''' THIS FUNCTION TAKES IN DIGITS AND OPERATORS FROM USER'''
-    digits = input('Enter a number: ')
-    list_ = list(digits)
-    fl = 0
+def get_number():
+    num = input("Enter a number:\n")
     while True:
-        num = []
-        if digits == '':
-            digits = input('Please enter a number: ')
+        if num.isdigit():
+            return num
         else:
-            for i in digits:
-                if i.isdigit() or i == '.':
-                    num.append(i)
-                    print('####################\n')
-                    print(num)
-                else:
-                    # num = []
-                    # print(num)
-                    digits = get_sum()
-            return ""join.num
-        # break
+            num  = input("Plese enter a number:\n")
 
 
-num = get_sum()
-# print(num)
+def get_operator():
+    operators = ['/' ,'-', '*', '+']
+    op = input("Enter an operand:\n")
+    while True:
+        if op in operators:
+            return op
+        else:
+            op = input("Invalid operand.\nEnter an operand:\n")
+
+
+def work_out_sum(one, two, op):
+    if op == '+':
+        print(f'{int(one) + int(two)}')
+    elif op == '-':
+        print(f'{int(one) - int(two)}')
+    elif op == '*':
+        print(f'{int(one) * int(two)}')
+    elif op == '/':
+        print(f'{int(one) / int(two)}')
+    
+
+
+one = get_number()
+op = get_operator()
+two = get_number()
+work_out_sum(one, two, op)
